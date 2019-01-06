@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout::head"></head>
+	<body>
+		<div th:replace="layout::header"></div>
+		<div id="wrap">
+		
+			<div th:if="${response_message != null}">
+				<p class="response_message" th:text="${response_message}"></p>
+			</div>
+
+			<h2>Input Form</h2>
+			<div class="line"></div>
+			<form class="message-form" action="#" th:action="@{/messages}" th:object="${messageForm}" method="post">
+				<p>TITLE:<input type="text" th:field="*{name}" />
+					<em th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</em>
+				</p>
+				<p><textarea cols="40" rows="4" placeholder="Type anything" th:field="*{text}" />
+					<em th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Text Error</em>
+				</p>
+				<p><button type="submit">submit</button></p>
+		
+			</form>
+	
+			<dl>
+				<h2>Message List</h2>
+					<th:block th:each="message : ${messages}">
+						<div class="line" style="border:solid 1px #CCC;"></div>
+						<div class="min-space"></div>
+						<dt>
+							<span class="name" th:text="${message.name}" th:attr="title=${message.remoteAddr}">John Doe</span>
+							<small th:text="${#dates.format(message.createdAt,'(yyyy-MM-dd HH:mm:ss)')}">(1970-01-01 00:00:00)</small>
+						</dt>
+						<dd th:text="${message.text}">Lorem ipsum dolor sit amet</dd>
+						<form action="#" th:action="@{/messages/{id}(id=*{message.id})}" method="post">
+							<button type="submit">削除</button>
+							<input type="hidden" name="_method" value="DELETE" />
+						</form>
+						<div class="min-space"></div>
+					</th:block>
+			</dl>
+
+			<div class="line"></div>
+			<div class="min-space"></div>
+			<a th:href="@{/}">HOMEへ</a>
+			<div class="min-space"></div>
+			<div class="min-space"></div>
+		</div>
+
+		<div th:replace="layout::footer"></div>
+	</body>
+</html>

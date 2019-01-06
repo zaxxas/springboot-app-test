@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:fragment="head">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" th:href="@{/css/style.css}">
+	</head>
+
+	<header th:fragment="header">
+		<div th:replace="header"></div>
+	</header>
+
+	<footer th:fragment="footer">
+		<div th:replace="footer"></div>
+	</footer>
+</html>

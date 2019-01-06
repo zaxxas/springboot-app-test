@@ -1,0 +1,57 @@
+body{
+}
+
+body #wrap{
+	background-color:#FDFDFD;
+	width:800px;
+	margin:0 auto;
+	min-height:600px;
+	
+}
+
+header{
+	width:100%;
+	height:250px;
+	background-color:SKYBLUE;
+	padding-top:100px;
+}
+
+header h1{
+	color:#FFF;
+	text-align:center;
+}
+
+footer{
+	width:100%;
+	height:300px;
+	background-color:SKYBLUE;
+}
+
+div.line{
+	solid 1px #CCC;
+}
+
+div.min-space{
+	height:20px;
+}
+
+form.message-form{
+	background-color:#FAFAFA;
+}
+
+form.message-form button{
+	width:100px;
+	height:50px;
+	font-size:18px;
+
+	text-align:center;
+	margin:0 auto;
+}
+
+.response_message{
+	width:100%;
+	height:40px;
+	background-color:rgba(255,0,0,0.3);
+	text-align:center;
+	padding-top:20px;
+}
